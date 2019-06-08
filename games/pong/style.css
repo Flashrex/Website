@@ -1,0 +1,59 @@
+body {
+    background-color: #d4d4d4;
+}
+
+a {
+    position: absolute;
+    text-decoration: none;
+    color: #5a5a5a;
+    font-weight: bold;
+    border: 2px solid #5a5a5a;
+    border-radius: 15px;
+    margin: 0 46%;
+    padding: 5px 15px;
+    top: 5%;
+}
+
+.game {
+    position: absolute;
+    background: #5a5a5a;
+    left: 25%;
+    top: 10%;
+    width: 50%;
+    height: 70%;
+    border-radius: 20px;
+    text-align: center;
+}
+
+canvas {
+    position: relative;
+    margin: 3%;
+}
+
+h5 {
+    margin-top: -2%;
+}
+
+.h2_controls_p1 {
+    position: absolute;
+    left: 5%;
+    top: 15%;
+}
+
+.p_controls_p1 {
+    position: absolute;
+    left: 5%;
+    top: 20%;
+}
+
+.h2_controls_p2 {
+    position: absolute;
+    left: 80%;
+    top: 15%;
+}
+
+.p_controls_p2 {
+    position: absolute;
+    left: 80%;
+    top: 20%;
+}

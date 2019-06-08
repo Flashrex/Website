@@ -1,0 +1,87 @@
+body {
+    overflow: hidden;
+}
+
+.picturebox-portrait {
+    background: #ffffff;
+    position: absolute;
+    border-radius: 5px;
+    border: 1px solid #c0bfbf;
+    width: 20%;
+    top: 120px;
+    left: 7.5%;
+    height: 400px;
+    text-align: center;
+    animation-duration: 1.5s;
+    animation-name: picturebox-slide-in;
+}
+
+@keyframes picturebox-slide-in{
+    from {
+        left: -20%;
+    }
+    to{
+        left: 7.5%;
+    }
+}
+
+.picturebox-portrait img {
+    margin: 10px;
+}
+
+.textbox-medium {
+    background: #ffffff;
+    position: absolute;
+    border-radius: 5px;
+    border: 1px solid #c0bfbf;
+    width: 60%;
+    top: 120px;
+    left: 32.5%;
+    height: 400px;
+    animation-duration: 1.5s;
+    animation-name: textbox-medium-slide-in;
+}
+
+@keyframes textbox-medium-slide-in{
+    from {
+        left: 100%;
+    }
+    to{
+        left: 32.5%;
+    }
+}
+
+.textbox-medium h1 {
+    position: relative;
+    margin-left: 50px;
+    color: #383838;
+}
+
+.textbox-medium p {
+    position: relative;
+    margin-left: 70px;
+    color: #7e7e7e;
+    max-width: 800px;
+}
+
+.ref-box-long {
+    background: #ffffff;
+    position: absolute;
+    border-radius: 5px;
+    border: 1px solid #c0bfbf;
+    width: 60%;
+    top: 560px;
+    left: 20%;
+    height: 100px;
+    animation-duration: 1.5s;
+    animation-name: refbox-slide-in;
+}
+
+@keyframes refbox-slide-in{
+    from {
+       top: 1000px;
+    }
+    to{
+        top: 560px;
+    }
+}

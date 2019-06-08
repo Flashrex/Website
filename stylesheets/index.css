@@ -1,0 +1,132 @@
+.dashboard-left {
+    position: fixed;
+    background: #ffffff;
+    top: 100px;
+    left: 120px;
+    width: 220px;
+    height: 400px;
+    border: 1px solid #c0bfbf;
+    border-radius: 5px;
+    animation-duration: 1.5s;
+    animation-name: dashboard-slide-in;
+}
+
+@keyframes dashboard-slide-in{
+    from {
+        left: -230px;
+    }
+    to{
+        left: 120px;
+    }
+}
+
+.dashboard-left img {
+    position: absolute;
+    left: 50px;
+    top: 25px;
+    border-radius: 100%;
+    border: 1px solid #c0bfbf;
+    box-sizing: border-box;
+}
+
+.aboutme::before {
+    content: '';
+    display: block;
+    margin-bottom: 15px;
+    margin-left: 10%;
+    height: 1px;
+    width: 80%;
+    background: #b1b0b0;
+}
+
+.aboutme {
+    position: absolute;
+    top: 160px;
+    margin: 0px 34px;
+    color: #383838;
+}
+
+.aboutme::after {
+    content: '';
+    display: block;
+    margin-top: 20px;
+    margin-left: 10%;
+    height: 1px;
+    width: 80%;
+    background: #b1b0b0;
+}
+
+.facts {
+    position: absolute;
+    font-size: 100%;
+    bottom: 30px;
+    margin: 0px 34px;
+    color: #7e7e7e;
+}
+
+.facts span {
+    color: #383838;
+}
+
+.blogbox {
+    position: absolute;
+    left: 420px;
+    top: 90px;
+    height: auto;
+    display: grid;
+    grid-template-columns: 820px;
+    grid-auto-rows: 280px;
+    animation-duration: 1.5s;
+    animation-name: blog-slide-in;
+}
+
+@keyframes blog-slide-in{
+    from {
+        left: 100%;
+    }
+    to{
+        left: 420px;
+    }
+}
+
+.blogpost {
+    margin: 10px;
+    background: #ffffff;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    border: 1px solid #c0bfbf;
+    border-radius: 5px;
+}
+
+.blogpost img {
+    position: relative;
+    margin-left: 25px;
+    margin-top: 30px;
+    border-radius: 5px;
+}
+
+.blogpost h3 {
+    color: #3d3d3d;
+    position: relative;
+    margin: 0 10px;
+    top: -180px;
+    left: 230px;
+}
+
+.blogpost h5 {
+    position: relative;
+    margin: 0 10px;
+    top: -175px;
+    left: 230px;
+    max-width: 230px;
+    color: #5a5a5a;
+}
+
+.blogpost p {
+    color: #7e7e7e;
+    position: relative;
+    margin: 0 10px;
+    left: 230px;
+    top: -165px;
+    max-width: 520px;
+}

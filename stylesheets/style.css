@@ -1,0 +1,43 @@
+body {
+    position: relative;
+    background-color: #d4d4d4;
+}
+
+.header {
+    background-color: #ffffff;
+    position: fixed;
+    z-index: 1;
+    top: -8px;
+    height: 80px;
+    left: -7px;
+    width: 101%;
+    border-bottom: 1px solid #c0bfbf;
+}
+
+.header h2 {
+    position: absolute;
+    font-size: 160%;
+    color: #5a5a5a;
+    left: 2em;
+    margin-top: 30px;
+}
+
+.header ul {
+    position: absolute;
+    top: 20px;
+    right: 120px;
+    list-style-type: none;
+}
+
+.header ul li {
+    margin: 0 1.5em;
+    display: inline;
+}
+
+.header ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #8d8c8c;
+}
+
+.content { position: relative; }
