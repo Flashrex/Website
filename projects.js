@@ -3,6 +3,7 @@ let Projects = [
     { logopath: "images/pong.png", headline: "Pong!", file: "games/pong/index.html", link: "https://github.com/", description: "Classic old Pong! written in vanilla Javascript. Added 2 Player Mode and Game Stages for extra difficulty."},
     { logopath: "images/rage.png", headline: "San Street Life | RageMP", file: "", link: "https://github.com/Flashrex/San-Street-Life", description: "This is a gamemode written in C#, Html/Css and Js for the Gta V modification Rage:Mp. It is still work in progress."},
     { logopath: "images/asteroid.png", headline: "AsteroidField", file: "", link: "https://gitlab.informatik.hs-fulda.de/fdai5902/raumschiff", description: "Our own version of the popular game 'Asteroids' from 1979 written in Java that we created as a university project."},
+    { logopath: "images/logo.png", headline: "Website", file: "", link: "https://github.com/Flashrex/Website", description: "This Website created in plain Html/Css/Js."}
 ]
 
 addGames();
