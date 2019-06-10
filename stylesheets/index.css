@@ -78,6 +78,7 @@
     grid-auto-rows: 280px;
     animation-duration: 1.5s;
     animation-name: blog-slide-in;
+
 }
 
 @keyframes blog-slide-in{

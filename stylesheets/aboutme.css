@@ -26,7 +26,8 @@ body {
 }
 
 .picturebox-portrait img {
-    margin: 10px;
+    margin: 40px 10px;
+    border-radius: 5px;
 }
 
 .textbox-medium {
@@ -75,6 +76,7 @@ body {
     height: 100px;
     animation-duration: 1.5s;
     animation-name: refbox-slide-in;
+    transform: skew(-15deg);
 }
 
 @keyframes refbox-slide-in{
@@ -84,4 +86,45 @@ body {
     to{
         top: 560px;
     }
+}
+
+.ref-box-long a {
+    position: relative;
+    text-decoration: none;
+    padding: 4px 8px;
+    margin: 10px 20px;
+    color: #ffffff;
+    font-size: 200%;
+    top: 30px;
+    border-radius: 4px;
+    transition: 0.5s;
+}
+
+.ref-box-long a:hover {
+    padding: 8px 12px;
+}
+
+#ico_youtube {
+    left: 80px;
+    background: rgb(241, 44, 44)
+}
+
+#ico_twitter  {
+    left: 80px;
+    background: #1DA1F2;
+}
+
+#ico_discord  {
+    left: 80px;
+    background-color: #556EC2;
+}
+
+#ico_github  {
+    left: 80px;
+    background-color: #323131;
+}
+
+#ico_steam  {
+    left: 80px;
+    background-color: #231F20;
 }
