@@ -7,7 +7,8 @@
     height: 400px;
     border: 1px solid #c0bfbf;
     border-radius: 5px;
-    animation-duration: 1.5s;
+    animation-duration: 1.25s;
+    animation-timing-function: ease-out;
     animation-name: dashboard-slide-in;
 }
 
@@ -76,8 +77,9 @@
     display: grid;
     grid-template-columns: 820px;
     grid-auto-rows: 280px;
-    animation-duration: 1.5s;
+    animation-duration: 1.25s;
     animation-name: blog-slide-in;
+    animation-timing-function: ease-out;
 
 }
 
@@ -90,7 +92,11 @@
     }
 }
 
-.blogpost {
+.blogbox a {
+    text-decoration: none;
+}
+
+.blogpost {  
     margin: 10px;
     background: #ffffff;
     grid-column: 1/2;

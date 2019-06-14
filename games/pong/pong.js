@@ -53,15 +53,9 @@ class Ball extends Rect {
         }
 
         //Check Player Collision
-
-        //Collision with Player 1
         if(this.position.x > player1.position.x && this.position.x < player1.position.x + player1.size.x
-            && this.position.y > player1.position.y && this.position.y < player1.position.y + player1.size.y) {
-                this.velocity.x *= -1;
-        }
-
-        //Collision with Player 2
-        if(this.position.x > player2.position.x - this.size.x && this.position.x < player2.position.x + player2.size.x
+            && this.position.y > player1.position.y && this.position.y < player1.position.y + player1.size.y ||
+            this.position.x > player2.position.x - this.size.x && this.position.x < player2.position.x + player2.size.x
             && this.position.y > player2.position.y && this.position.y < player2.position.y + player2.size.y) {
                 this.velocity.x *= -1;
         }
@@ -204,6 +198,7 @@ function update(dt) {
     context.fillRect(player1.position.x, player1.position.y, player1.size.x, player1.size.y);
     context.fillRect(player2.position.x, player2.position.y, player2.size.x, player2.size.y);
 
+    //Update Key Array
     if(keys["87"]) player1.move("Up");
     else if(keys["83"]) player1.move("Down");
 
@@ -213,7 +208,11 @@ function update(dt) {
 
 callback();
 
-//Reset Game
+/**
+ * Resets the Game and starts a new one.
+ * Score will not be resetted!
+ * @param {*Starting direction for the ball.} ballDirection 
+ */
 function resetGame (ballDirection) {
 
     //Reset Positions
