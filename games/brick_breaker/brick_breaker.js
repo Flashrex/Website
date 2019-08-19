@@ -24,8 +24,49 @@ class Rectangle {
 }
 
 class Brick extends Rectangle {
-    constructor(x, y, width, height, color) {
+    constructor(x, y, width, height) {
+        let rnd = Math.floor(Math.random() * (3 - 1 + 1) ) + 1;
+        let color = '#ffffff';
+
+        switch(rnd) {
+            case 1:
+                color = '#00ff00';
+                break;
+
+            case 2:
+                color = '#ffff00';
+                break;
+
+            case 3:
+                color = '#ff0000';
+                break;
+        }
+
         super(x, y, width, height, color);
+        this.lifes = rnd;
+        this.color = color;
+    }
+
+    damage() {
+        //Create Particles
+        for(let i = 0; i < 100; i++) {
+            particleArr.push(new Particle(this.x + this.width/2, this.y + this.height/2, 2, this.color, new Vector2d(Math.random() * (2 - (-2)) + (-2), Math.random() * (2 - (-2)) + (-2))));
+        }
+
+        this.lifes--;
+        if(this.lifes <= 0) {
+            this.delete();
+        } else {
+            switch(this.lifes) {
+                case 1:
+                    this.color = '#00ff00';
+                    break;
+                
+                case 2:
+                    this.color = '#ffff00';
+                    break;
+            }
+        }
     }
 
     delete() {
@@ -34,11 +75,6 @@ class Brick extends Rectangle {
 
         if(brickArr.length === 0) {
             player.gameOver = true;
-        }
-
-        //Create Particles
-        for(let i = 0; i < 100; i++) {
-            particleArr.push(new Particle(this.x + this.width/2, this.y + this.height/2, 2, this.color, new Vector2d(Math.random() * (2 - (-2)) + (-2), Math.random() * (2 - (-2)) + (-2))));
         }
 
         //Random Chance to create Item
@@ -56,7 +92,7 @@ class Player extends Rectangle {
     constructor(x, y, width, height, color) {
         super(x, y, width, height, color);
 
-        this.lives = 3;
+        this.lifes = 3;
         this.points = 0;
         this.gameOver = false;
         this.velocity = new Vector2d(0, 0);
@@ -71,8 +107,8 @@ class Player extends Rectangle {
     }
 
     damage() {
-        this.lives--;
-        if(this.lives <= 0) {
+        this.lifes--;
+        if(this.lifes <= 0) {
             this.gameOver = true;
         }
     }
@@ -96,7 +132,7 @@ class Laser extends Rectangle {
 
         brickArr.forEach(brick => {
             if(this.y + this.velocity.y < brick.y + brick.height && this.x > brick.x && this.x < brick.x + brick.width) {
-                brick.delete();
+                brick.damage();
                 this.delete();
             }
         })
@@ -106,6 +142,17 @@ class Laser extends Rectangle {
 
     delete() {
         laserArr.splice(laserArr.indexOf(this), 1);
+    }
+}
+
+class Star extends Rectangle {
+    constructor(x, y, width, height) {
+        super(x, y, width, height, '#ffffff');
+    }
+
+    flash() {
+        this.x = Math.floor(Math.random() * (800 - 0) ) + 0;
+        this.y = Math.floor(Math.random() * (600 - 0) ) + 0;
     }
 }
 
@@ -175,7 +222,7 @@ class Ball extends Circle {
         brickArr.forEach(brick => {
             if(nextPos.x > brick.x && nextPos.x < brick.x + brick.width 
                 && nextPos.y > brick.y && nextPos.y < brick.y + brick.height) {
-                    brick.delete();
+                    brick.damage();
                     this.velocity.y *= -1;
                 }
         })
@@ -285,6 +332,7 @@ let brickArr = [];
 let particleArr = [];
 let itemArr = [];
 let laserArr = [];
+let starArr = [];
 let gameStarted = false;
 let gameLoop;
 
@@ -294,54 +342,41 @@ function Initialize() {
     player = new Player(320, 570, 160, 20, '#ffffff');
     player.draw();
 
-    let color;
-    for(let i = 0; i < 10; i++) {
+    for(let i = 0; i < 8; i++) {
         for(let j = 0; j < 8; j++) {
-            switch(i % 4) {
-                case 0:
-                    color = '#ff0000';
-                    break;
-
-                case 1:
-                    color = '#00ff00';
-                    break;
-
-                case 2:
-                    color = '#0000ff';
-                    break;
-
-                case 3:
-                    color = '#ffff00';
-                    break;
-            }
-
-            brickArr.push(new Brick(10 +80*i, 30 +30*j, 60, 20, color));
-            
+            brickArr.push(new Brick(70 +80*i, 50 +30*j, 60, 20));    
         }
     }
 
-    brickArr.forEach(brick => {
-        brick.draw();
-    })
-
     let ball = new Ball(395, 550, 10, '#00ff00', new Vector2d(0, 0), false);
-    ball.draw();
     ballArr.push(ball);
 
     gameLoop = setInterval(update, 10);
+
+    for(var i = 0; i < 500; i++) {
+        let rnd = Math.floor(Math.random() * (2 - 1 + 1) ) +1;
+        starArr.push(new Star(Math.floor(Math.random() * (800 - 0) ) + 0, Math.floor(Math.random() * (600 - 0) ) + 0, rnd, rnd));
+    }
 }
+
 
 function update() {
     if(player.gameOver) {
         clearInterval(gameLoop);
     }
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     ctx.fillStyle = '#000000';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    starArr.forEach(star => {
+        star.draw();
+        if(Math.random() > 0.9995) star.flash();
+    })
+
+    ctx.fillStyle = '#ffffff';
     ctx.font = "20px Arial";
-    ctx.fillText("Leben: " +player.lives, 10, 20);
-    ctx.fillText("Punkte: " +player.points, 680, 20); 
+    ctx.fillText("Lifes: " +player.lifes, 10, 20);
+    ctx.fillText("Points: " +player.points, 680, 20); 
 
     if(keys["37"]) {player.velocity.x = -4;}
     else if(keys["39"]) {player.velocity.x = 4;}
