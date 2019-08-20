@@ -180,7 +180,22 @@ class Ball extends Circle {
     }
 
     move() {
-        //Collision with Walls
+
+        this.doCollideWithWalls();
+
+        this.doCollideWithRect(player);
+        
+        brickArr.forEach(brick => {
+            if(this.doCollideWithRect(brick)) {
+                brick.damage();
+            }
+        })
+
+        this.x += this.velocity.x;
+        this.y += this.velocity.y;
+    }
+
+    doCollideWithWalls() {
         if(this.x - this.r + this.velocity.x < 0 || this.x + this.r + this.velocity.x > canvas.width) {
             this.velocity.x *= -1;
         }
@@ -197,38 +212,48 @@ class Ball extends Circle {
             }
            
         }
+    }
 
-        //Collision with Player
-        if(this.velocity.x > 0 && this.velocity.y > 0 && this.x + this.r < player.x && this.x + this.r + this.velocity.x > player.x 
-            && this.y + this.r + this.velocity.y > player.y) {
-            //Ball hits Player from left
-            this.velocity.x *= -1;
-            this.velocity.y *= -1;
-        
-        } else if(this.velocity.x < 0 && this.velocity.y > 0 &&  this.x + this.r > player.x + player.width && this.x + this.r + this.velocity.x < player.x + player.width
-            && this.y + this.r + this.velocity.y > player.y) {
-            //Ball hits Player from right
-            this.velocity.x *= -1;
-            this.velocity.y *= -1;  
-        
-        } else if(this.x + this.r + this.velocity.x > player.x && this.x + this.r + this.velocity.x < player.x + player.width
-            && this.y + this.r + this.velocity.y > player.y) {
-            //Ball hits Player on top
-            this.velocity.y *= -1;
+
+    doCollideWithRect(object) {
+        if(this.x + this.r + this.velocity.x > object.x && this.x + this.r + this.velocity.x < object.x + object.width
+            && this.y + this.r + this.velocity.y > object.y && this.y + this.r + this.velocity.y < object.y + object.height) {
+                //Next Position collides with object
+
+                if(this.velocity.x > 0 && this.velocity.y > 0) {
+                    //Ball moves Top Left to Bottom Right
+                    if(this.x + this.r < object.x && this.y + this.r + this.velocity.y > object.y) {
+                        this.velocity.x *= -1;
+                    } else {
+                        this.velocity.y *= -1;
+                    }
+
+                } else if (this.velocity.x < 0 && this.velocity.y > 0) {
+                    //Ball moves Top Right to Bottom Left
+                    if(this.x + this.r > object.x + object.width && this.y + this.r + this.velocity.y < object.y + object.height) {
+                        this.velocity.x *= -1;
+                    } else {
+                        this.velocity.y *= -1;
+                    }
+                } else if (this.velocity.x > 0 && this.velocity.y < 0) {
+                    //Ball moves Bottom Left to Top Right
+                    if(this.x + this.r < object.x && this.y + this.r + this.velocity.y < object.y + object.height) {
+                        this.velocity.x *= -1;
+                    } else {
+                        this.velocity.y *= -1;
+                    }
+                } else if (this.velocity.x < 0 && this.velocity.y < 0) {
+                    //Ball moves Bottom Right to Top Left
+                    if(this.x + this.r > object.x + object.width && this.y + this.r + this.velocity.y < object.y + object.height) {
+                        this.velocity.x *= -1;
+                    } else {
+                        this.velocity.y *= -1;
+                    }
+                }
+                return true;
         }
 
-        //Collision with Brick
-        let nextPos = new Vector2d(this.x + this.velocity.x, this.y + this.velocity.y);
-        brickArr.forEach(brick => {
-            if(nextPos.x > brick.x && nextPos.x < brick.x + brick.width 
-                && nextPos.y > brick.y && nextPos.y < brick.y + brick.height) {
-                    brick.damage();
-                    this.velocity.y *= -1;
-                }
-        })
-
-        this.x += this.velocity.x;
-        this.y += this.velocity.y;
+        return false;
     }
 
     reset() {
@@ -325,7 +350,7 @@ class Item {
     }
 }
 
-//Vars
+//Game Variables
 let player;
 let ballArr = [];
 let brickArr = [];
