@@ -100,6 +100,20 @@ class Player extends Rectangle {
         this.cooldown = false;
     }
 
+    draw() {
+        if(!this.laser) {
+            super.draw();
+            return;
+        }
+        
+        ctx.fillStyle = '#ff0000';
+        ctx.fillRect(this.x, this.y, this.width/5, this.height);
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x + this.width/5, +this.y, this.width/5*4, this.height);
+        ctx.fillStyle = '#ff0000';
+        ctx.fillRect(this.x + this.width/5*4, this.y, this.width/5, this.height);
+    }
+
     move() {
         if(this.x + this.velocity.x > 5 && this.x + this.velocity.x + this.width < canvas.width-5) {
             this.x += this.velocity.x;
@@ -216,44 +230,29 @@ class Ball extends Circle {
 
 
     doCollideWithRect(object) {
-        if(this.x + this.r + this.velocity.x > object.x && this.x + this.r + this.velocity.x < object.x + object.width
-            && this.y + this.r + this.velocity.y > object.y && this.y + this.r + this.velocity.y < object.y + object.height) {
-                //Next Position collides with object
+        if(this.x + this.r + this.velocity.x < object.x || this.x - this.r + this.velocity.x > object.x + object.width) return;
+        if(this.y + this.r + this.velocity.y < object.y || this.y - this.r + this.velocity.y > object.y + object.height) return;
 
-                if(this.velocity.x > 0 && this.velocity.y > 0) {
-                    //Ball moves Top Left to Bottom Right
-                    if(this.x + this.r < object.x && this.y + this.r + this.velocity.y > object.y) {
-                        this.velocity.x *= -1;
-                    } else {
-                        this.velocity.y *= -1;
-                    }
-
-                } else if (this.velocity.x < 0 && this.velocity.y > 0) {
-                    //Ball moves Top Right to Bottom Left
-                    if(this.x + this.r > object.x + object.width && this.y + this.r + this.velocity.y < object.y + object.height) {
-                        this.velocity.x *= -1;
-                    } else {
-                        this.velocity.y *= -1;
-                    }
-                } else if (this.velocity.x > 0 && this.velocity.y < 0) {
-                    //Ball moves Bottom Left to Top Right
-                    if(this.x + this.r < object.x && this.y + this.r + this.velocity.y < object.y + object.height) {
-                        this.velocity.x *= -1;
-                    } else {
-                        this.velocity.y *= -1;
-                    }
-                } else if (this.velocity.x < 0 && this.velocity.y < 0) {
-                    //Ball moves Bottom Right to Top Left
-                    if(this.x + this.r > object.x + object.width && this.y + this.r + this.velocity.y < object.y + object.height) {
-                        this.velocity.x *= -1;
-                    } else {
-                        this.velocity.y *= -1;
-                    }
-                }
-                return true;
+        if(this.velocity.x > 0 && this.velocity.y > 0 && this.x + this.r < object.x 
+            || this.velocity.x > 0 && this.velocity.y < 0 && this.x + this.r < object.x ) {
+            //Collision on Left Side of Object
+            this.velocity.x *= -1;
+            return true;
         }
 
-        return false;
+        if(this.velocity.x < 0 && this.velocity.y > 0 && this.x - this.r > object.x + object.width
+            || this.velocity.x < 0 && this.velocity.y < 0 && this.x - this.r > object.x + object.width) {
+            //Collision on Right Side ob Object
+            this.velocity.x *= -1;
+            return true;
+        }
+
+        if(this.velocity.y > 0 && this.x + this.r > object.x && this.x - this.r < object.x + object.width && this.y + this.r < object.y
+            || this.velocity.y < 0 && this.x + this.r > object.x && this.x - this.r < object.x + object.width && this.y - this.r > object.y + object.height) {
+            //Collision on Top or Bottom
+            this.velocity.y *= -1;
+            return true;
+        }
     }
 
     reset() {
@@ -337,7 +336,7 @@ class Item {
                 let reset = setInterval(() => {
                     player.laser = false;
                     clearInterval(reset);
-                }, 5000);
+                }, 10000);
             }
             this.delete();
         }

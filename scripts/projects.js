@@ -4,7 +4,7 @@ let Projects = [
     { logopath: "images/brickbreaker.png", headline: "Brick Breaker", file: "games/brick_breaker/index.html", link: "https://github.com/Flashrex", description: "Brick Breaker with different Items in Javascript."},
     { logopath: "images/rage.png", headline: "San Street Life | RageMP", file: "", link: "https://github.com/Flashrex/San-Street-Life", description: "This is a gamemode written in C#, Html/Css and Js for the Gta V modification Rage:Mp. It is still work in progress."},
     { logopath: "images/asteroid.png", headline: "AsteroidField", file: "", link: "https://gitlab.informatik.hs-fulda.de/fdai5902/raumschiff", description: "Our own version of the popular game 'Asteroids' from 1979 written in Java that we created as a university project."},
-    { logopath: "images/logo.png", headline: "Website", file: "", link: "https://github.com/Flashrex/Website", description: "This Website - Created in plain Html/Css/Js."}
+    { logopath: "images/logo.png", headline: "Website", file: "", link: "https://github.com/Flashrex/Website", description: "The Website you are looking at - Created in plain Html/Css/Js."}
 ]
 
 addGames();
