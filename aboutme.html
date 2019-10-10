@@ -27,14 +27,14 @@
             <div class="textbox-medium">
                 <h1>About me</h1>
                 <p> My Name is Dominik,
-                I am 23 Years old and live in Germany.
+                I am <span class="age"></span> Years old and live in Germany.
                 Currently i´m studying computer science in the german college 'Hochschule Fulda'.
                 I´m interested in Programming, everything around Hard- and Software and Gaming. <br>
                 What i learned/i´m still learning: Java, C#, Webdesign (Html, Css, Js), Database (MySql) and more in depth Knowledge about computer science from College.</p>
                 
                 <h1>Über mich</h1>
                 <p> Ich bin Dominik,
-                23 Jahre alt und lebe in Deutschland.
+                <span class="age"></span> Jahre alt und lebe in Deutschland.
                 Derzeit studiere ich Angewandte Informatik an der Hochschule in Fulda.
                 Zu meinen Interessen gehören Programmieren, alles was mit Hard- und Software zu tun hat und auch Gaming. <br>
                 Was ich gelernt habe/ derzeit lerne: Java, C#, Webdesign (Html, Css, Js), Datenbanken (MySql) und tiefere Kenntnisse in Informatik-Themen aus der Hochschule.</p>
@@ -47,5 +47,21 @@
                 <a target="_blank" href="https://steamcommunity.com/id/Flashrex1/" id="ico_steam">Steam</a>
             </div>
         </div>
+
+        <script>
+            updateAge();
+            function updateAge() {
+                let date = new Date();
+                let age_elems = document.getElementsByClassName('age');
+
+                if(date.getMonth() > 4 || (date.getMonth() == 4 && date.getDay() >= 26)) {
+                    age_elems[0].innerHTML = date.getFullYear() - 1996;
+                    age_elems[1].innerHTML = date.getFullYear() - 1996;
+                } else {
+                    age_elems[0].innerHTML = date.getFullYear() - 1996 -1;
+                    age_elems[1].innerHTML = date.getFullYear() - 1996 -1;
+                }
+            }
+        </script>
     </body>
 </html>
