@@ -74,7 +74,7 @@ body {
     border: 1px solid #c0bfbf;
     width: 60%;
     top: 560px;
-    left: 20%;
+    left: 25%;
     height: 100px;
     animation-duration: 1s;
     animation-name: refbox-slide-in;
@@ -89,6 +89,10 @@ body {
     to{
         top: 560px;
     }
+}
+
+.buttons {
+    margin-left: 100px;
 }
 
 .ref-box-long a {

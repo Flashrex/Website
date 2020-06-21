@@ -387,6 +387,12 @@ function Initialize() {
 function update() {
     if(player.gameOver) {
         clearInterval(gameLoop);
+
+        //Show GameOver
+        ctx.fillStyle = '#ffffff';
+        ctx.font = "60px Arial";
+        ctx.fillText("GameOver! Score: " +player.points, canvas.width/6 , canvas.height/2 + 100);
+        return;
     }
 
     ctx.fillStyle = '#000000';
