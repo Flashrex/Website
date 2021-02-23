@@ -14,7 +14,7 @@ body {
 
 .projectbox .project {
     background-color: #ffffff;
-    margin: 10px;
+    margin: 2%;
     border: 1px solid #c0bfbf;
     border-radius: 5px;
 }
@@ -28,29 +28,31 @@ body {
 .project h4 {
     position: relative;
     margin: 0 10px;
-    left: 140px;
-    top: -120px;
+    left: 30%;
+    top: -67%;
+    font-size: 1vw;
 }
 
 .project p {
     position: relative;
     margin: 0 10px;
-    left: 140px;
-    top: -130px;
+    left: 30%;
+    top: -74%;
     max-width: 220px;
     color: #7e7e7e;
+    font-size: 0.8vw;
 }
 
 .project span a {
     text-decoration: none;
-    color: #0e83cd;
+    color: #202020;
     background-color: #eeecec;
     border: 1px solid #c0bfbf;
     border-radius: 4px;
     padding: 3px 12px;
     margin: 0 35px;
     position: relative;
-    left: 15px;
-    top: -22px;
+    left: 4%;
+    top: -13%;
     max-width: 300px;
 }

@@ -27,8 +27,11 @@ body {
 }
 
 .picturebox-portrait img {
-    margin: 40px 10px;
+    position: relative;
+    top: 10%;
     border-radius: 5px;
+    width: 80%;
+    height: 80%;
 }
 
 .textbox-medium {
@@ -58,13 +61,15 @@ body {
     position: relative;
     margin-left: 50px;
     color: #383838;
+    font-size: 1.5vw;
 }
 
 .textbox-medium p {
     position: relative;
-    margin-left: 70px;
+    margin-left: 5%;
     color: #7e7e7e;
-    max-width: 800px;
+    max-width: 90%;
+    font-size: 0.9vw;
 }
 
 .ref-box-long {
@@ -73,8 +78,8 @@ body {
     border-radius: 5px;
     border: 1px solid #c0bfbf;
     width: 60%;
-    top: 560px;
     left: 25%;
+    top: 600px;
     height: 100px;
     animation-duration: 1s;
     animation-name: refbox-slide-in;
@@ -84,15 +89,15 @@ body {
 
 @keyframes refbox-slide-in{
     from {
-       top: 1000px;
+        top: 1100px;
     }
     to{
-        top: 560px;
+        top: 600px;
     }
 }
 
 .buttons {
-    margin-left: 100px;
+    margin-left: 15%;
 }
 
 .ref-box-long a {
@@ -131,7 +136,7 @@ body {
     background-color: #323131;
 }
 
-#ico_steam  {
+#ico_twitch {
     left: 80px;
-    background-color: #231F20;
+    background-color: #6f23e9;
 }

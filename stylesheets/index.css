@@ -1,10 +1,15 @@
+body {
+    user-select: none;
+    overflow-x: hidden;
+}
+
 .dashboard-left {
     position: fixed;
     background: #ffffff;
     top: 100px;
     left: 120px;
     width: 220px;
-    height: 400px;
+    height: 380px;
     border: 1px solid #c0bfbf;
     border-radius: 5px;
     animation-duration: 1.25s;
@@ -43,7 +48,7 @@
 .aboutme {
     position: absolute;
     top: 160px;
-    margin: 0px 34px;
+    margin: 0px 40px;
     color: #383838;
 }
 
@@ -60,8 +65,8 @@
 .facts {
     position: absolute;
     font-size: 100%;
-    bottom: 30px;
-    margin: 0px 34px;
+    bottom: 40px;
+    margin: 0px 40px;
     color: #7e7e7e;
 }
 
@@ -71,11 +76,11 @@
 
 .blogbox {
     position: absolute;
-    left: 420px;
-    top: 90px;
+    left: 400px;
+    top: 92px;
     height: auto;
     display: grid;
-    grid-template-columns: 820px;
+    grid-template-columns: 940px;
     grid-auto-rows: 280px;
     animation-duration: 1.25s;
     animation-name: blog-slide-in;

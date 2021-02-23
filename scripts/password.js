@@ -13,14 +13,11 @@ class Password {
     generate() {
         while(this.password.length < this.length) {
             switch(getRandomIntFromInterval(1, 6)) {
-                case 1:
-                case 2:
-                case 3:
+                case 1: case 2: case 3:
                     //Generate Letter
                     if(this.letters) this.password += letters[getRandomIntFromInterval(0, letters.length-1)];
                     break;
-                case 4:
-                case 5:
+                case 4: case 5:
                     //Generate Number
                     if(this.numbers) this.password += getRandomIntFromInterval(0, 9);
                     break;
@@ -37,6 +34,7 @@ class Password {
     }
 }
 
+generatePassword();
 function generatePassword() {
     let length = document.getElementById("_length").value;
     

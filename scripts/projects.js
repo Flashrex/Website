@@ -53,14 +53,16 @@ class Project {
 Project.currentRow = 1;
 
 let Projects = [
-    { logopath: "images/snake.png", headline: "Snake", file: "games/snake/index.html", link: "https://github.com/Flashrex", description: "Snake Game written in vanilla Javascript. You can leave and reenter the field. ;)"},
-    { logopath: "images/pong.png", headline: "Pong!", file: "games/pong/index.html", link: "https://github.com/Flashrex", description: "Classic old Pong! written in vanilla Javascript. Added 2 Player Mode and Game Stages for extra difficulty."},
-    { logopath: "images/brickbreaker.png", headline: "Brick Breaker", file: "games/brick_breaker/index.html", link: "https://github.com/Flashrex", description: "Brick Breaker with different Items in Javascript."},
-    { logopath: "images/rage.png", headline: "San Street Life | RageMP [private]", file: "", link: "https://github.com/Flashrex/San-Street-Life", description: "This is a gamemode written in C#, Html/Css and Js for the Gta V modification Rage:Mp. It is still work in progress."},
-    { logopath: "images/asteroid.png", headline: "AsteroidField [private]", file: "", link: "https://gitlab.informatik.hs-fulda.de/fdai5902/raumschiff", description: "Our own version game 'Asteroids' from 1979 written in Java created by my fellow students and me as a university project."},
-    { logopath: "images/logo.png", headline: "Website", file: "", link: "https://github.com/Flashrex/Website", description: "The Website you are looking at - Created in plain Html/Css/Js."},
-    { logopath: "images/lock.png", headline: "Passwordgenerator", file: "passwordgenerator.html", link: "", description: "Simple Passwordgenerator i created on a boring train trip."},
-    { logopath: "images/tutorial.jpg", headline: "RageMP Tutorial", file: "", link: "https://github.com/Flashrex/RageTutorial", description: "A little project i created for my Rage:MP Tutorial series on youtube."}
+    { logopath: "images/logo.png", headline: "Website", file: "", link: "https://github.com/Flashrex/Website", description: "Die Website, die du dir gerade anschaust."},
+    { logopath: "images/snake.png", headline: "Snake", file: "games/snake/index.html", link: "https://github.com/Flashrex", description: "Snake Spiel - Geschrieben in Vanilla Javascript. Du kannst das Feld an den Rändern verlassen. ;)"},
+    { logopath: "images/pong.png", headline: "Pong!", file: "games/pong/index.html", link: "https://github.com/Flashrex", description: "Klassisches altes Pong! Um es ein wenig spannender zu machen habe ich einen 2 Spieler Modus hinzugefügt."},
+    { logopath: "images/brickbreaker.png", headline: "Brick Breaker", file: "games/brick_breaker/index.html", link: "https://github.com/Flashrex", description: "Brick Breaker mit verschiedenen Items."},
+    { logopath: "images/lock.png", headline: "Passwordgenerator", file: "passwordgenerator.html", link: "", description: "Einfacher Passwortgenerator, den ich auf einem langweiligen Ausflug mit der Bahn erstellt habe."},
+    { logopath: "images/asteroid.png", headline: "AsteroidField [privat]", file: "", link: "https://gitlab.informatik.hs-fulda.de/fdai5902/raumschiff", description: "Unsere Version des Spiels 'Asteroids' aus 1979. Erstellt von mir und meinen Komillitonen als Uniprojekt."},
+    { logopath: "images/rage.png", headline: "San Street Life [privat]", file: "", link: "https://github.com/Flashrex", description: "Dies ist ein Gamemode für die GTA V Multiplayer Modifikation Rage:MP. Geschrieben in C# und Javascript."},
+    { logopath: "images/tutorial.jpg", headline: "RageMP Tutorial", file: "", link: "https://github.com/Flashrex/RageTutorial", description: "Ein kleines Projekt welches ich für meine Tutorial Reihe über Rage:MP auf Youtube erstellt habe."},
+    { logopath: "images/tutorial.jpg", headline: "alt:V Tutorial", file: "", link: "https://github.com/Flashrex/altv-tutorial", description: "Ein kleines Projekt welches ich für meine Tutorial Reihe über alt:V auf Youtube erstellt habe."},
+    { logopath: "images/altvoice.png", headline: "alt:V Voice Chat Resource", file: "", link: "https://github.com/Flashrex/altv-tutorial", description: "Eine custom Voice Chat API Resource für alt:V."}
 ]
 
 addGames();
